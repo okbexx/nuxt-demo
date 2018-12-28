@@ -1,3 +1,4 @@
-*.js linguist-language=php
+*.js linguist-language=vue
 *.vue linguist-language=vue
-*.html linguist-language=php
+*.html linguist-language=vue
+*.css linguist-language=vue
