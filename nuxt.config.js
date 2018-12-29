@@ -1,11 +1,12 @@
 const pkg = require('./package')
 const config = require('./config')
 const path = require('path')
-const consola = require('consola')
 console.log('prosess', process.env.NODE_ENV)
 module.exports = {
   mode: 'universal',
   extractCSS: true, // 开启公共css提取
+
+  // 这里的会在每个页面都载入
   styleResources: {
     scss: ['./assets/scss/_variables.scss', './assets/scss/_mixin.scss'],
     // sass: ...
@@ -39,12 +40,14 @@ module.exports = {
     color: 'blue',
     height: '5px'
   },
-
+  // 页面跳转动画
+  transition: 'test',
   /*
-  ** Global CSS
+  ** 这里的CSS只会在全局载入，就是只会载入一次
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    './assets/scss/_index.scss'
   ],
 
   /*
@@ -72,7 +75,7 @@ module.exports = {
     // 这里配置开发环境和生产环境的host
     host: config.host,
     port: config.port,
-    // See https://github.com/nuxt-community/axios-module#options
+    // See https://github.com/nuxt-communlity/axios-module#options
   },
 
   /*
@@ -99,9 +102,11 @@ module.exports = {
         'utils': path.resolve(__dirname, 'utils'),
         'components': path.resolve(__dirname, 'components')
       })
-      if (ctx.isClient) {
-        config.devtool = 'eval-source-map'
-      }
+      /*if (ctx.isClient) {
+        config.devtool = 'source-map'  // 配置所有模式的inline-source-map
+       }*/
+      config.devtool = 'inline-source-map'
+       console.log('config',config)
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <section :class="[$style.container,$style.subtitle]" class="melli">
+  <section :class="[$style.container,$style.subtitle,$style.melli]" >
     <div>
       <sj-logo></sj-logo>
       <h1 :class="$style.title">
@@ -38,6 +38,7 @@ export default {
   },
   mounted () {
     this.actionTest()
+    this.xxx()
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
     })
