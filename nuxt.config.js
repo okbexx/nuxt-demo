@@ -46,7 +46,7 @@ module.exports = {
   ** 这里的CSS只会在全局载入，就是只会载入一次
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css',
+    /*'element-ui/lib/theme-chalk/index.css',*/
     './assets/scss/_index.scss'
   ],
 
@@ -82,7 +82,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-
+    analyze: true,
     babel: {
       plugins: [
         [
@@ -93,6 +93,44 @@ module.exports = {
           }
         ]
       ]
+    },
+    optimization: {
+      minimize: true,
+      splitChunks: {
+        chunks: "initial",
+        minSize: 30000,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3,
+        automaticNameDelimiter: '~',
+        name: true,
+        cacheGroups: {
+          commons: {
+            chunks: 'initial',
+            name: 'commons',
+            minChunks: 2,
+            maxInitialRequests: 5,
+            minSize: 0,
+            priority: 0, // 优先级
+          },
+          // 单独打包vue插件
+          'vue-vendor': {
+            chunks: 'initial',
+            test: /[\\/]node_modules[\\/]vue/, // <- window | mac -> /node_modules/vue/
+            name: 'vue-vendor',
+            minChunks: 1,
+            priority: -9,
+            enforce: true,
+          },
+          vendor: {
+            chunks: 'initial',
+            test: /node_modules/,
+            name: 'ss',
+            priority: -10,
+            enforce: true,
+          }
+        }
+      }
     },
     /*
    ** You can extend webpack config here
@@ -105,8 +143,8 @@ module.exports = {
       /*if (ctx.isClient) {
         config.devtool = 'source-map'  // 配置所有模式的inline-source-map
        }*/
-      config.devtool = 'inline-source-map'
-       console.log('config',config)
+    //  config.devtool = 'inline-source-map'
+     //  console.log('config',config)
     }
   }
 }
