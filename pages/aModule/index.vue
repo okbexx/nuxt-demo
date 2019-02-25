@@ -6,9 +6,9 @@
     export default {
         name: "index",
       mounted() {
-        this.$nextTick(() => {
-          this.$nuxt.$loading.start()
-        })
+       /* this.$nextTick(() => {
+          this.$nuxt.$loading.finish()
+        })*/
       }
     }
 </script>

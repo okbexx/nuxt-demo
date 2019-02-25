@@ -29,7 +29,7 @@
  */
 @mixin border-radius($radius:50%) {
   border-radius: $radius;
-} ;
+};
 
 /**
   超出范围显示...
@@ -44,7 +44,6 @@
 @mixin transition ($attr:all,$time:0.5s){
   transition:$attr $time ;
 }
-
 
 /*
   flex

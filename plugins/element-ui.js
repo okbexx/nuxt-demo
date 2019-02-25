@@ -1,56 +1,18 @@
 import Vue from 'vue'
-//   Tabs,
-//   TabPane,
-//   Tag,
-//   Tree,
-//   Alert,
-//   Slider,
-//   Icon,
-//   Row,
-//   Col,
-//   Upload,
-//   Progress,
-//   Badge,
-//   Card,
-//   Rate,
-//   Steps,
-//   Step,
-//   Carousel,
-//   CarouselItem,
-//   Collapse,
-//   CollapseItem,
-//   Cascader,
-//   ColorPicker,
-//   Transfer,
-//   Container,
-//import { Button } from 'element-ui'
-/*import { Button } from 'element-ui'
-import { Tabs } from 'element-ui'
-import { Tree } from 'element-ui'
-import { Alert } from 'element-ui'
-import { Slider } from 'element-ui'
-import { Upload } from 'element-ui'
-import { ColorPicker } from 'element-ui'
-import { CollapseItem } from 'element-ui'
-import { Collapse } from 'element-ui'
-import { Container } from 'element-ui'
-import { Transfer } from 'element-ui'*/
+import {Loading,
+  MessageBox,
+  Message,
+  Notification} from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 
 export default () => {
- // Vue.use(Element, { locale })
- // Vue.use(Button)
-/*  Vue.use(Button)
-  Vue.use(Tabs)
-  Vue.use(Tree)
-  Vue.use(Alert)
-  Vue.use(Slider)
-  Vue.use(Upload)
-  Vue.use(ColorPicker)
-  Vue.use(CollapseItem)
-  Vue.use(Collapse)
-  Vue.use(Container)
-  Vue.use(Transfer)*/
+  Vue.prototype.$loading = Loading.service;
+  Vue.prototype.$msgbox = MessageBox;
+  Vue.prototype.$alert = MessageBox.alert;
+  Vue.prototype.$confirm = MessageBox.confirm;
+  Vue.prototype.$prompt = MessageBox.prompt;
+  Vue.prototype.$notify = Notification;
+  Vue.prototype.$message = Message;
 
   Vue.component('el-button', () => {
     import('element-ui/lib/theme-chalk/button.css')

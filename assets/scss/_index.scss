@@ -1,17 +1,8 @@
 @import "./variables";
 @import "./mixin";
+@import "./vue-animation";
 
-/*
-  全局动画
-*/
-.test-enter-active,.test-leave-active{
-  transition: all 2s;
-  font-size: 12px;
-}
-.test-enter,.test-leave-active{
-  opacity: 0;
-  font-size: 16px;
-}
+
 
 
 * {
@@ -445,18 +436,6 @@ address {
 .affix {
   position: fixed;
 }
-
-.cell .el-button--mini {
-  padding: 7px 9px !important;
-}
-
-.el-table {
-  border: 1px solid #e6ebf5;
-  &.el-table--fit{
-    border-right: 1px solid #e6ebf5 !important;
-  }
-}
-
 
 .alert-log {
   border: 1px solid $border-color;

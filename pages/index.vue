@@ -15,6 +15,7 @@
           :class="$style['button--green']">Documentation</a>
       </div>
       <a href="#">xxxxxxxxxxxxxxxxxxxx</a>
+      <nuxt-link to="aModule">aModule</nuxt-link>
     </div>
   </section>
 </template>
@@ -35,12 +36,20 @@ export default {
   methods: {
     ...mapActions('aModule',['actionTest'])
   },
+  created() {
+
+  },
   mounted () {
     console.log('a')
     this.actionTest()
     this.$api.core.login()
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
+      this.$loading({
+        lock: true,
+        text: 'Loading',
+        background: 'rgba(255, 255, 255, 0.8)'
+      });
     })
   }
 }
