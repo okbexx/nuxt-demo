@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
-    "@nuxtjs/style-resources": "^0.1.1",
+    "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
-    "element-ui": "^2.4.6",
-    "koa": "^2.5.2",
-    "nuxt": "^2.0.0"
+    "element-ui": "^2.5.4",
+    "koa": "^2.7.0",
+    "nuxt": "^2.4.3"
   },
   "devDependencies": {
     "babel-plugin-component": "^1.1.1",
-    "consola": "^2.3.0",
+    "consola": "^2.5.4",
     "node-sass": "^4.11.0",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.18.10",
     "sass-loader": "^7.1.0"
   }
 }

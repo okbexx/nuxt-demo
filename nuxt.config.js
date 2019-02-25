@@ -82,7 +82,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    analyze: true,
+  //  analyze: true,
     babel: {
       plugins: [
         [
@@ -98,7 +98,7 @@ module.exports = {
       minimize: true,
       splitChunks: {
         chunks: "initial",
-        minSize: 30000,
+        minSize: 3000,
         minChunks: 1,
         maxAsyncRequests: 5,
         maxInitialRequests: 3,
@@ -122,10 +122,19 @@ module.exports = {
             priority: -9,
             enforce: true,
           },
+          // 单独打包element插件
+          'ele-vendor': {
+            chunks: 'initial',
+            test: /[\\/]node_modules[\\/]element-ui/, // <- window | mac -> /node_modules/vue/
+            name: 'ele-vendor',
+            minChunks: 1,
+            priority: -9,
+            enforce: true,
+          },
           vendor: {
             chunks: 'initial',
             test: /node_modules/,
-            name: 'ss',
+            name: 'vendor',
             priority: -10,
             enforce: true,
           }

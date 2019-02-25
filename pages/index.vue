@@ -13,7 +13,6 @@
           href="https://nuxtjs.org/"
           target="_blank"
           :class="$style['button--green']">Documentation</a>
-        <nuxt-link to="/amodule">GitHsub</nuxt-link>
       </div>
       <a href="#">xxxxxxxxxxxxxxxxxxxx</a>
     </div>
@@ -37,8 +36,9 @@ export default {
     ...mapActions('aModule',['actionTest'])
   },
   mounted () {
+    console.log('a')
     this.actionTest()
-    this.xxx()
+    this.$api.core.login()
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
     })
